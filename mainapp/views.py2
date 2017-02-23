@@ -1,0 +1,18 @@
+from django.shortcuts import render
+
+from django.http import HttpResponse
+class Entry():
+	def __init__(self,title,body ):
+	  self.title = title
+          self.body = body
+
+def index(request):
+        entrys =[
+        Entry("primer post"," aprendiendo envi dinamico atemplate"),
+        Entry("segundo post"," ojo un post nuevo ")
+        ]
+        entrys_total = len(entrys)
+
+	return render(request, "index.html",{'entrys':entrys,'entrys_totl':entrys_total})
+
+
